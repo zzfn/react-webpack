@@ -1,0 +1,42 @@
+{
+  "name": "react-webpack",
+  "version": "1.0.0",
+  "description": "react脚手架",
+  "main": "src/index.tsx",
+  "scripts": {
+    "dev": "webpack server --config build/webpack.dev.js",
+    "build": "webpack --config build/webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzfn/react-webpack.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "zzfn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzfn/react-webpack/issues"
+  },
+  "homepage": "https://github.com/zzfn/react-webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.1",
+    "webpack": "^5.48.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
