@@ -1,6 +1,6 @@
 {
   "presets": [
-    ["@babel/preset-env",{"modules": false,"targets": {"esmodules": true}}],
+    "@babel/preset-env",
     [
       "@babel/preset-react",
       {
@@ -10,6 +10,8 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime"
+    ["@babel/plugin-transform-runtime",{
+      "corejs": 3
+    }]
   ]
 }

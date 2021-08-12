@@ -7,12 +7,13 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: `[contenthash:8].chunk.js`,
+        filename: '[contenthash:8].chunk.js',
     },
     module: {
         rules: [
             {
                 test: /\.tsx|js$/,
+                exclude: /node_modules/,
                 use: ['babel-loader'],
             },
         ]
@@ -21,5 +22,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
         })
-    ]
+    ],
+    resolve: {
+        extensions: ['.js','.tsx']
+    }
 }
