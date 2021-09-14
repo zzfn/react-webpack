@@ -2,6 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
+const scssRegex = /\.(scss)$/;
+const scssModuleRegex = /\.module\.(scss)$/;
+
 module.exports = {
     entry: {
         index: path.resolve(__dirname, '../src/index.tsx'),
@@ -17,6 +20,54 @@ module.exports = {
                 test: /\.tsx|js$/,
                 exclude: /node_modules/,
                 use: ['babel-loader'],
+            },
+            {
+                test: scssModuleRegex,
+                include: path.resolve(__dirname, '../src'),
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 3,
+                            modules: {
+                                exportLocalsConvention: 'camelCaseOnly',
+                            },
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: scssRegex,
+                exclude: scssModuleRegex,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 3,
+                            modules: false,
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
         ]
     },
