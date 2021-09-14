@@ -5,7 +5,7 @@ function App() {
     <div>
       <div>2131</div>
       <button onClick={() => setNum(num + 1)}>+1</button>
-      <button onClick={() => setNum(num - 1)}>-1</button> bvbbbvvvvccvccxcxcxxzzxz
+      <button onClick={() => setNum(num - 1)}>-1</button>
       <hr />
       {num}
     </div>
