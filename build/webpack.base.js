@@ -6,6 +6,7 @@ module.exports = {
         index: path.resolve(__dirname, '../src/index.tsx'),
     },
     output: {
+        clean: true,
         path: path.resolve(__dirname, '../dist'),
         filename: '[contenthash:8].chunk.js',
     },
@@ -24,6 +25,6 @@ module.exports = {
         })
     ],
     resolve: {
-        extensions: ['.js','.tsx']
+        extensions: ['.js','.tsx','ts']
     }
 }
