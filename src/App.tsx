@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function App() {
   const [num, setNum] = useState(0);
+  useEffect(() => {
+    console.log(process.env.API_URL);
+  }, []);
   return (
     <div>
-      <div>2131</div>
+      <div>{process.env.ENV_NAME}</div>
       <button onClick={() => setNum(num + 1)}>+1</button>
       <button onClick={() => setNum(num - 1)}>-1</button>
       <hr />
