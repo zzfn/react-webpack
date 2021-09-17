@@ -6,6 +6,8 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:prettier/recommended",
         "prettier"
     ],
@@ -23,6 +25,7 @@
         "react-hooks"
     ],
     "rules": {
+        "no-console": 1,
         "react-hooks/rules-of-hooks": 2,
         "react-hooks/exhaustive-deps": 1
     }

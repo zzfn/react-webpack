@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './global.scss';
 import styles from './app.module.scss';
 
-function App() {
+function App(): JSX.Element {
   const [num, setNum] = useState(0);
   useEffect(() => {
     console.log(process.env.API_URL);

@@ -12,11 +12,12 @@
     "build:test": "cross-env APP_ENV=test webpack --config build/webpack.prod.js",
     "build:pre": "cross-env APP_ENV=pre webpack --config build/webpack.prod.js",
     "build:prod": "cross-env APP_ENV=production webpack --config build/webpack.prod.js",
-    "test": "eslint",
+    "test": "eslint . --ext .tsx",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,ts}": "eslint --fix"
+    "*.{js,ts}": "eslint --fix",
+    "*.(scss|css)": "stylelint --fix"
   },
   "repository": {
     "type": "git",
