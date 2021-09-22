@@ -6,9 +6,7 @@ const scssRegex = /\.(scss)$/;
 const scssModuleRegex = /\.module\.(scss)$/;
 
 module.exports = {
-    entry: {
-        index: path.resolve(__dirname, '../src/index.tsx'),
-    },
+    entry: path.resolve(__dirname, '../src/index.tsx'),
     output: {
         clean: true,
         path: path.resolve(__dirname, '../dist'),
