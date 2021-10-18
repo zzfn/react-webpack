@@ -4,6 +4,8 @@ const base = require('./webpack.base');
 module.exports = merge(base, {
     mode: 'production',
     optimization: {
+        minimize : true, // 启动压缩
+        usedExports: true, //只导出被使用的模块
         splitChunks: {
             chunks: 'all',
             minSize: 20000,

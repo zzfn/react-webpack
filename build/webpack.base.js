@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -79,6 +80,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '../tsconfig.json')}),
         isDevelopment && new ReactRefreshWebpackPlugin(),
         new Dotenv({
             systemvars: true,
@@ -89,6 +91,7 @@ module.exports = {
         })
     ].filter(Boolean),
     resolve: {
-        extensions: ['.js', '.tsx', 'ts']
-    }
+        extensions: ['.js', '.tsx', 'ts'],
+        symlinks: false,
+    },
 }
