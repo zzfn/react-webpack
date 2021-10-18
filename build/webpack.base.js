@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const scssRegex = /\.(scss)$/;
 const scssModuleRegex = /\.module\.(scss)$/;
@@ -17,15 +19,20 @@ module.exports = {
             {
                 test: /\.tsx|js$/,
                 exclude: /node_modules/,
-                use: ['babel-loader'],
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
+                        },
+                    },
+                ],
             },
             {
                 test: scssModuleRegex,
                 include: path.resolve(__dirname, '../src'),
                 use: [
-                    {
-                        loader: 'style-loader',
-                    },
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
@@ -42,6 +49,7 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    'postcss-loader'
                 ],
             },
             {
@@ -65,11 +73,13 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    'postcss-loader'
                 ],
             },
         ]
     },
     plugins: [
+        isDevelopment && new ReactRefreshWebpackPlugin(),
         new Dotenv({
             systemvars: true,
             path: `./.env.${process.env.APP_ENV}`
@@ -77,7 +87,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
         })
-    ],
+    ].filter(Boolean),
     resolve: {
         extensions: ['.js', '.tsx', 'ts']
     }
