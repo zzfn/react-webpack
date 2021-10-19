@@ -1,11 +1,19 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 const {merge} = require('webpack-merge');
 const base = require('./webpack.base');
 
 module.exports = merge(base, {
     mode: 'production',
     optimization: {
+        chunkIds: 'named',
+        moduleIds: 'deterministic',
         minimize : true, // 启动压缩
         usedExports: true, //只导出被使用的模块
+        minimizer:[
+            new CssMinimizerPlugin()
+        ],
         splitChunks: {
             chunks: 'all',
             minSize: 20000,
@@ -29,5 +37,9 @@ module.exports = merge(base, {
         },
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'static/css/[name].[contenthash:8].css',
+            chunkFilename: 'static/css/[contenthash:8].chunk.css',
+        }),
     ]
 })

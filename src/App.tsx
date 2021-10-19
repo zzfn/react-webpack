@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import 'global.scss';
 import styles from './app.module.scss';
 
 function App(): JSX.Element {
   const [num, setNum] = useState(0);
   useEffect(() => {
     console.log(process.env.API_URL);
+    console.log(process.env.NODE_ENV);
   }, []);
   return (
     <div className={styles.appWrapper}>

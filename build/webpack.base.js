@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
-
 const scssRegex = /\.(scss)$/;
 const scssModuleRegex = /\.module\.(scss)$/;
 
@@ -13,7 +13,7 @@ module.exports = {
     output: {
         clean: true,
         path: path.resolve(__dirname, '../dist'),
-        filename: '[contenthash:8].chunk.js',
+        filename: 'static/js/[contenthash:8].chunk.js',
     },
     module: {
         rules: [
@@ -33,7 +33,9 @@ module.exports = {
                 test: scssModuleRegex,
                 include: path.resolve(__dirname, '../src'),
                 use: [
-                    'style-loader',
+                    {
+                        loader: isDevelopment?'style-loader':MiniCssExtractPlugin.loader,
+                    },
                     {
                         loader: 'css-loader',
                         options: {
@@ -58,7 +60,7 @@ module.exports = {
                 exclude: scssModuleRegex,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: isDevelopment?'style-loader':MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
@@ -80,7 +82,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '../tsconfig.json')}),
+        // new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '../tsconfig.json')}),
         isDevelopment && new ReactRefreshWebpackPlugin(),
         new Dotenv({
             systemvars: true,
