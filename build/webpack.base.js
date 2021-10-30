@@ -4,7 +4,7 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 const scssRegex = /\.(scss)$/;
 const scssModuleRegex = /\.module\.(scss)$/;
 
