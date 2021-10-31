@@ -6,6 +6,7 @@ const base = require('./webpack.base');
 
 module.exports = merge(base, {
     mode: 'production',
+    devtool: 'nosources-source-map',
     optimization: {
         chunkIds: 'named',
         moduleIds: 'deterministic',
