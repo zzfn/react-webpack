@@ -1,5 +1,5 @@
 module.exports = {
-  '*.{js,ts}': 'eslint --fix',
+  '*.{js,ts,tsx}': 'eslint --fix',
   '*.(scss|css)': 'stylelint --fix',
-  '*': 'prettier --write',
+  '*.{js,ts,tsx,scss,css}': 'prettier --write',
 };

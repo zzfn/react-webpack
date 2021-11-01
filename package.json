@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .tsx,.ts,.js src",
     "lint:fix": "eslint . --ext .tsx,.ts,.js --fix src",
     "prettier": "prettier --write .",
-    "test:style": "stylelint '**/*.scss'",
+    "stylelint": "stylelint '**/*.scss'",
     "prepare": "husky install"
   },
   "repository": {
