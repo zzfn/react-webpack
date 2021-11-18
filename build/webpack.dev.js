@@ -5,7 +5,6 @@ module.exports = merge(base, {
     target:"web",
     devtool: 'eval-source-map',
     devServer: {
-        hotOnly: true,
-        progress:true,
+
     }
 })
