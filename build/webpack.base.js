@@ -93,7 +93,6 @@ module.exports = {
         })
     ].filter(Boolean),
     resolve: {
-        extensions: ['.js', '.tsx', 'ts'],
-        symlinks: false,
+        extensions: ['.js', '.tsx', 'ts']
     },
 }
