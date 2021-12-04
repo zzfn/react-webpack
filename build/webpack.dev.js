@@ -5,6 +5,6 @@ module.exports = merge(base, {
     target:"web",
     devtool: 'eval-source-map',
     devServer: {
-
+        historyApiFallback: true,
     }
 })

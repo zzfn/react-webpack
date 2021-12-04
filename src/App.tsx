@@ -1,22 +1,26 @@
-import { useEffect, useState } from 'react';
-import styles from './app.module.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Expenses from './routes/Expenses';
+import Invoices from './routes/Invoices';
+import Home from './routes/Home';
 
 function App(): JSX.Element {
-  const [num, setNum] = useState(0);
-  useEffect(() => {
-    setInterval(() => {
-      setNum((pre) => pre + 1);
-    }, 1000);
-  }, []);
   return (
-    <div className={styles.appWrapper}>
-      {num}
-      <div>{process.env.ENV_NAME}</div>
-      <button onClick={() => setNum(num + 1)}>+1</button>
-      <button onClick={() => setNum(num - 1)}>-1</button>
-      <hr />
-      {num}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}>
+          <Route path='expenses' element={<Expenses />} />
+          <Route path='invoices' element={<Invoices />} />
+        </Route>
+        <Route
+          path='*'
+          element={
+            <main style={{ padding: '1rem' }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
