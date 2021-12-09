@@ -1,9 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch, RootModel } from '../store';
 
 export default function Home() {
+  const count = useSelector((state: RootModel) => state.count);
+  const dispatch = useDispatch<Dispatch>();
   return (
     <div>
-      <h1>Home</h1>
+      {count}
+      <h1 onClick={() => dispatch({ type: 'count/incrementAsync', payload: 2 })}>Home</h1>
       <ul>
         {invoices.map((item, index) => (
           <li key={index}>

@@ -18,13 +18,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx|js$/,
+                test: /\.tsx|ts|js$/,
                 exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
-                            plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
+                            // plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
                         },
                     },
                 ],
@@ -83,7 +83,7 @@ module.exports = {
     },
     plugins: [
         // new TsconfigPathsPlugin({configFile: path.resolve(__dirname, '../tsconfig.json')}),
-        isDevelopment && new ReactRefreshWebpackPlugin(),
+        // isDevelopment && new ReactRefreshWebpackPlugin(),
         new Dotenv({
             systemvars: true,
             path: `./.env.${process.env.APP_ENV}`
@@ -93,6 +93,6 @@ module.exports = {
         })
     ].filter(Boolean),
     resolve: {
-        extensions: ['.js', '.tsx', 'ts']
+        extensions: ['.tsx', '.ts','.js']
     },
 }
