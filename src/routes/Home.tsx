@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Dispatch, RootModel } from '../store';
+import { Dispatch, RootModel } from 'store';
 
 export default function Home() {
   const count = useSelector((state: RootModel) => state.count);
