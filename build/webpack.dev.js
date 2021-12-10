@@ -1,10 +1,10 @@
-const {merge} = require('webpack-merge');
-const base = require('./webpack.base');
+const { merge } = require("webpack-merge");
+const base = require("./webpack.base");
 module.exports = merge(base, {
-    mode: 'development',
-    target:"web",
-    devtool: 'eval-source-map',
-    devServer: {
-        historyApiFallback: true,
-    }
-})
+  mode: "development",
+  target: "web",
+  devtool: "eval-source-map",
+  devServer: {
+    historyApiFallback: true
+  }
+});

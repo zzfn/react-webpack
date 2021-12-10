@@ -18,7 +18,7 @@ module.exports = merge(base, {
         ],
         splitChunks: {
             chunks: 'all',
-            minSize: 20000,
+            minSize: 0,
             minRemainingSize: 0,
             minChunks: 1,
             maxAsyncRequests: 30,
@@ -44,5 +44,5 @@ module.exports = merge(base, {
             filename: 'static/css/[name].[contenthash:8].css',
             chunkFilename: 'static/css/[contenthash:8].chunk.css',
         }),
-    ]
+    ].filter(Boolean)
 })

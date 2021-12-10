@@ -10,7 +10,12 @@ const scssModuleRegex = /\.module\.(scss)$/;
 
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.tsx"),
-  cache: true,
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename],
+    },
+  },
   output: {
     clean: true,
     path: path.resolve(__dirname, "../dist"),
@@ -19,12 +24,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|svg|gif|jpe?g)$/,
+        type: "asset",
+        generator: {
+          filename: "static/images/[name].[contenthash:8][ext]"
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024//10kb
+          }
+        }
+      },
+      {
         test: /\.tsx|ts|js$/,
-        exclude: /node_modules/,
+        exclude: /(node_modules|\.png|svg|jpe?g$)/,
         use: [
           {
             loader: "babel-loader",
             options: {
+              cacheDirectory: true,
               plugins: [isDevelopment && "react-refresh/babel"].filter(Boolean)
             }
           }

@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch, RootModel } from 'store';
+import demo from 'assets/demo.png';
 
 export default function Home() {
   const count = useSelector((state: RootModel) => state.count);
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <div>
       {count}
+      <img width={20} src={demo} alt='' />
       <h1 onClick={() => dispatch({ type: 'count/incrementAsync', payload: 2 })}>Home</h1>
       <ul>
         {invoices.map((item, index) => (
