@@ -10,6 +10,7 @@ const scssModuleRegex = /\.module\.(scss)$/;
 
 module.exports = {
   entry: path.resolve(__dirname, "../src/index.tsx"),
+  cache: true,
   output: {
     clean: true,
     path: path.resolve(__dirname, "../dist"),
