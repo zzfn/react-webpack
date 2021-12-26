@@ -4,6 +4,7 @@
   "description": "react脚手架",
   "main": "src/index.tsx",
   "scripts": {
+    "check-type": "tsc --noEmit --watch",
     "analyzer": "cross-env ANALYZER=true npm run build:prod",
     "start:dev": "cross-env NODE_ENV=development APP_ENV=development webpack server --config build/webpack.dev.js",
     "start:test": "cross-env NODE_ENV=development APP_ENV=test webpack server --config build/webpack.dev.js",
