@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       {count}
       <img width={20} src={demo} alt='' />
-      <h1 onClick={() => dispatch({ type: 'count/incrementAsync', payload: 2 })}>Home1</h1>
+      <h1 onClick={() => dispatch({ type: 'count/incrementAsync', payload: 2 })}>2Home1</h1>
       <ul>
         {invoices.map((item, index) => (
           <li key={index}>
