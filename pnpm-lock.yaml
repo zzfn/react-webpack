@@ -9,7 +9,7 @@ specifiers:
   '@babel/runtime-corejs3': ^7.16.3
   '@commitlint/cli': ^15.0.0
   '@commitlint/config-conventional': ^15.0.0
-  '@pmmmwh/react-refresh-webpack-plugin': ^0.5.1
+  '@pmmmwh/react-refresh-webpack-plugin': ^0.5.4
   '@rematch/core': ^2.2.0
   '@types/react-dom': ^17.0.11
   '@typescript-eslint/eslint-plugin': ^5.4.0
@@ -38,8 +38,9 @@ specifiers:
   react: ^17.0.2
   react-dom: ^17.0.2
   react-redux: ^7.2.6
-  react-refresh: ^0.10.0
+  react-refresh: ^0.11.0
   react-router-dom: ^6.0.2
+  redux: ^4.1.2
   sass: ^1.43.4
   sass-loader: ^12.3.0
   style-loader: ^3.3.1
@@ -58,11 +59,12 @@ specifiers:
   webpack-merge: ^5.8.0
 
 dependencies:
-  '@rematch/core': 2.2.0
+  '@rematch/core': 2.2.0_redux@4.1.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-redux: 7.2.6_react-dom@17.0.2+react@17.0.2
   react-router-dom: 6.0.2_react-dom@17.0.2+react@17.0.2
+  redux: 4.1.2
 
 devDependencies:
   '@babel/core': 7.16.0
@@ -73,7 +75,7 @@ devDependencies:
   '@babel/runtime-corejs3': 7.16.3
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
-  '@pmmmwh/react-refresh-webpack-plugin': 0.5.1_92cb4b81c6b9f71cf92f0bdb85e4210c
+  '@pmmmwh/react-refresh-webpack-plugin': 0.5.4_d5e7cadf46cf4fe2155a5f3454151f5c
   '@types/react-dom': 17.0.11
   '@typescript-eslint/eslint-plugin': 5.4.0_d6f2571581882eb2d6c9d9867e002185
   '@typescript-eslint/parser': 5.4.0_eslint@8.2.0+typescript@4.5.2
@@ -98,7 +100,7 @@ devDependencies:
   postcss-preset-env: 7.0.0
   postcss-scss: 4.0.2_postcss@8.3.11
   prettier: 2.4.1
-  react-refresh: 0.10.0
+  react-refresh: 0.11.0
   sass: 1.43.4
   sass-loader: 12.3.0_sass@1.43.4+webpack@5.64.1
   style-loader: 3.3.1_webpack@5.64.1
@@ -1582,12 +1584,12 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@pmmmwh/react-refresh-webpack-plugin/0.5.1_92cb4b81c6b9f71cf92f0bdb85e4210c:
-    resolution: {integrity: sha512-ccap6o7+y5L8cnvkZ9h8UXCGyy2DqtwCD+/N3Yru6lxMvcdkPKtdx13qd7sAC9s5qZktOmWf9lfUjsGOvSdYhg==}
+  /@pmmmwh/react-refresh-webpack-plugin/0.5.4_d5e7cadf46cf4fe2155a5f3454151f5c:
+    resolution: {integrity: sha512-zZbZeHQDnoTlt2AF+diQT0wsSXpvWiaIOZwBRdltNFhG1+I3ozyaw7U/nBiUwyJ0D+zwdXp0E3bWOl38Ag2BMw==}
     engines: {node: '>= 10.13'}
     peerDependencies:
       '@types/webpack': 4.x || 5.x
-      react-refresh: ^0.10.0
+      react-refresh: '>=0.10.0 <1.0.0'
       sockjs-client: ^1.4.0
       type-fest: '>=0.17.0 <3.0.0'
       webpack: '>=4.43.0 <6.0.0'
@@ -1615,7 +1617,7 @@ packages:
       find-up: 5.0.0
       html-entities: 2.3.2
       loader-utils: 2.0.2
-      react-refresh: 0.10.0
+      react-refresh: 0.11.0
       schema-utils: 3.1.1
       source-map: 0.7.3
       webpack: 5.64.1_webpack-cli@4.9.1
@@ -1626,11 +1628,13 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rematch/core/2.2.0:
+  /@rematch/core/2.2.0_redux@4.1.2:
     resolution: {integrity: sha512-Sj3nC/2X+bOBZeOf4jdJ00nhCcx9wLbVK9SOs6eFR4Y1qKXqRY0hGigbQgfTpCdjRFlwTHHfN3m41MlNvMhDgw==}
     engines: {node: '>=10'}
     peerDependencies:
       redux: '>=4'
+    dependencies:
+      redux: 4.1.2
     dev: false
 
   /@trysound/sax/0.2.0:
@@ -6040,8 +6044,8 @@ packages:
       react-is: 17.0.2
     dev: false
 
-  /react-refresh/0.10.0:
-    resolution: {integrity: sha512-PgidR3wST3dDYKr6b4pJoqQFpPGNKDSCDx4cZoshjXipw3LzO7mG1My2pwEzz2JVkF+inx3xRpDeQLFQGH/hsQ==}
+  /react-refresh/0.11.0:
+    resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
     engines: {node: '>=0.10.0'}
     dev: true
 
