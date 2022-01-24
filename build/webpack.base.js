@@ -101,7 +101,6 @@ module.exports = {
     ]
   },
   plugins: [
-
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new Dotenv({
       systemvars: true,
